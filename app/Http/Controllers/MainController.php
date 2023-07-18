@@ -43,4 +43,31 @@ class MainController extends Controller
 
         return redirect() -> route('show', $comic -> id);
     }
+
+    public function edit($id) {
+
+        $Comic = Comic :: findOrFail($id);
+
+        return view('edit', compact("Comic"));
+    }
+    public function update(Request $request, $id) {
+
+        $data = $request -> all();
+
+        $Comic = Comic :: findOrFail($id);
+
+        $Comic -> update($data);
+
+        return redirect() -> route('show', $Comic -> id);
+    }
+
+    public function destroy($id) {
+
+        $Comic = Comic :: findOrFail($id);
+
+        $Comic -> delete();
+
+        return redirect() -> route('home');
+    }
+
 }
