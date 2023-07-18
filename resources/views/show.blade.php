@@ -2,7 +2,7 @@
 
 @section("content")
 
-    <div class="text-center">
+    <section class="text-center">
 
         <h1 class="py-3">
             {{ $comic -> title}}
@@ -28,6 +28,6 @@
             </span>
         </div>
 
-    </div>
+    </section>
 
 @endsection
