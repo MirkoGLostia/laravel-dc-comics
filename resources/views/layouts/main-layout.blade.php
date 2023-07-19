@@ -21,6 +21,16 @@
     </div>
 
     @include("components.footer")
+
+    <script>
+
+        function deletefct() {
+
+            return confirm("sei sicuro di voler cancellare?");
+
+        }
+
+    </script>
     
 </body>
 </html>

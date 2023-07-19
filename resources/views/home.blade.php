@@ -2,6 +2,9 @@
 
 @section("content")
 
+    
+
+
     <section class="text-center">
 
         <h1>
@@ -21,18 +24,23 @@
                         edit
                     </a>
 
-                    <form class="d-inline" method="POST" action="{{ route('destroy', $comic -> id) }}">
+                    <form class="d-inline" method="POST" action="{{ route('destroy', $comic -> id) }}" onsubmit="deletefct()">
 
                         @csrf
                         @method('DELETE')
 
-                        <input class="mx-3 btn" type="submit" value="DELETE">
+                        <input class="mx-3 btn btn-primary" type="submit" value="DELETE">
+
                     </form>
+
+
                 </li>
 
             @endforeach
             
         </ul>
     </section>
+
+    
 
 @endsection
