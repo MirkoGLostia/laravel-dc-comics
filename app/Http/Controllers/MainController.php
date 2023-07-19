@@ -30,7 +30,8 @@ class MainController extends Controller
     public function store(Request $request) {
 
         $data = $request -> validate(
-            $this -> getValidationRule()
+            $this -> getValidationRule(),
+            $this -> getMessageError()
         );
 
         $comic = Comic :: create([
@@ -55,7 +56,8 @@ class MainController extends Controller
     public function update(Request $request, $id) {
 
         $data = $request -> validate(
-            $this -> getValidationRule()
+            $this -> getValidationRule(),
+            $this -> getMessageError()
         );
 
         $comic = Comic :: findOrFail($id);
@@ -85,6 +87,16 @@ class MainController extends Controller
             'sale_date' => 'date',
             'type' => 'required|max:32'
         ];
+
+    }
+
+    private function getMessageError() {
+
+        return [
+            'title.required' => 'manca il titolo',
+            'description.max' => 'descrizione troppo lunga'
+        ];
+
     }
 
 
